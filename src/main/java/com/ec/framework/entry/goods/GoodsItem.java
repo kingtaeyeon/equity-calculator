@@ -1,6 +1,6 @@
 package com.ec.framework.entry.goods;
 
-import com.ec.framework.utils.IDGenerator;
+import com.ec.framework.utils.IdGenerator;
 import com.google.common.collect.Maps;
 import lombok.Data;
 import org.assertj.core.util.Lists;
@@ -53,7 +53,7 @@ public class GoodsItem extends GoodsInfo implements Serializable, Comparable<Goo
      * @param idGenerator id生成器
      * @param consumer    在创建商品时对extra的内容进行初始化
      */
-    public static <T extends GoodsItem> List<T> generateItems(GoodsInfo goodsInfo, IDGenerator idGenerator, Consumer<T> consumer) {
+    public static <T extends GoodsItem> List<T> generateItems(GoodsInfo goodsInfo, IdGenerator idGenerator, Consumer<T> consumer) {
         if (Objects.isNull(goodsInfo)) {
             return Lists.newArrayList();
         }

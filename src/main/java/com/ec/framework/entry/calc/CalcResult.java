@@ -48,7 +48,9 @@ public class CalcResult implements Serializable {
     private transient long curPrice;
 
     public static CalcResult create(int n) {
+
         CalcResult c = new CalcResult();
+        /** 此数组只会创建一次，在接下来的100万次计算过程中会反复复用，减少计算机创建数组的性能开销 */
         c.stages = new CalcStage[n];
         c.curStages = new CalcStage[n];
         return c;

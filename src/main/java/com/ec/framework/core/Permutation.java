@@ -98,7 +98,7 @@ public abstract class Permutation<T extends GoodsItem> {
      * 计算最优解
      * @param context 上下文
      */
-    public void prem(DiscountContext<T> context) {
+    public void perm(DiscountContext<T> context) {
         int size = context.getDiscountWrappers().size();
         this.context = context;
         loadMustUseDiscount();

@@ -7,10 +7,10 @@ package com.ec.framework.utils;
  * @Author: LiHao
  * @Since 2023/12/16 21:48
  */
-public class IDGenerator {
+public class IdGenerator {
 
-    public static IDGenerator getInstance() {
-        return new IDGenerator();
+    public static IdGenerator getInstance() {
+        return new IdGenerator();
     }
 
     private long currentId = 1;
