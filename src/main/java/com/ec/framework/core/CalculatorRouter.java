@@ -16,6 +16,7 @@ import java.util.Map;
  * @Since 2023/12/17 13:30
  */
 @Component
+@SuppressWarnings("all")
 public class CalculatorRouter implements ApplicationContextAware {
 
 

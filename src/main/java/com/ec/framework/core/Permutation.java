@@ -107,6 +107,7 @@ public abstract class Permutation<T extends GoodsItem> {
         }
         Collection<List<Byte>> list = PERMUTATIONS.get(size);
         for (List<Byte> a : list) {
+            // a: [0, 1, 2, 3, 4, 5, 6]
             boolean isBetter = executeCalc(context, a);
             if (isBetter) {
                 /** 若出现比当前结果更优的结果则替换 */
