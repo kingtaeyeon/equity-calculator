@@ -31,7 +31,7 @@ public class PreComputeHolder {
         Properties properties = new Properties();
         try {
             properties = PropertiesLoaderUtils.loadProperties(new FileSystemResource(Objects.requireNonNull(PreComputeHolder.class.getClassLoader().getResource("calculator-core.properties")).getPath()));
-        } catch (IOException e) {
+        } catch (IOException ignore) {
         }
         String path = properties.getProperty(PATH);
         if (StringUtils.isNotBlank(path)) {
@@ -40,7 +40,7 @@ public class PreComputeHolder {
             for (Class<? extends PreCompute> clazz: subTypes) {
                 try {
                     COMPUTES.add(clazz.newInstance());
-                } catch (Exception e) {
+                } catch (Exception ignore) {
                 }
             }
         }

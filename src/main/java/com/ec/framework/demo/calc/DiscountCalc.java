@@ -24,7 +24,7 @@ import java.util.Map;
 public class DiscountCalc extends AbstractCalculator<GoodsItem> {
 
     @Override
-    public long calc(DiscountContext<GoodsItem> context, DiscountWrapper wrapper, Map<Long, GoodsItem> records, long precStagePrice, CalcStage curStage) {
+    public long calc(DiscountContext<GoodsItem> context, DiscountWrapper wrapper, Map<Long, GoodsItem> records, long prevStagePrice, CalcStage curStage) {
         List<GoodsItem> goodsItems = Lists.newArrayList(context.getDiscountItemGroup().get(wrapper.getId()));
         Map<Long, List<GoodsItem>> skuIdGroup = (Map<Long, List<GoodsItem>>) context.getPreCompute().get("GroupBySkuIdPrecompute");
         long maxPrice = 0L;
@@ -41,6 +41,6 @@ public class DiscountCalc extends AbstractCalculator<GoodsItem> {
         for (GoodsItem item : group) {
             item.getExtra().put(Constant.UPDATE_ABLE_PRICE, (long)item.getExtra().get(Constant.UPDATE_ABLE_PRICE) - discount / goodsItems.size());
         }
-        return precStagePrice - discount;
+        return prevStagePrice - discount;
     }
 }

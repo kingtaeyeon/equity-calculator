@@ -22,15 +22,15 @@ import java.util.Map;
 public class FullCalc extends AbstractCalculator<GoodsItem> {
 
     @Override
-    public long calc(DiscountContext<GoodsItem> context, DiscountWrapper wrapper, Map<Long, GoodsItem> records, long precStagePrice, CalcStage curStage) {
+    public long calc(DiscountContext<GoodsItem> context, DiscountWrapper wrapper, Map<Long, GoodsItem> records, long prevStagePrice, CalcStage curStage) {
 
         List<GoodsItem> goodsItems = Lists.newArrayList(context.getDiscountItemGroup().get(wrapper.getId()));
-        if (precStagePrice >= 100 * 100) {
-            precStagePrice = precStagePrice - 20 * 100;
+        if (prevStagePrice >= 100 * 100) {
+            prevStagePrice = prevStagePrice - 20 * 100;
         }
         for (GoodsItem item: goodsItems) {
             item.getExtra().put(Constant.UPDATE_ABLE_PRICE, (long)item.getExtra().get(Constant.UPDATE_ABLE_PRICE) - 20 * 100 / goodsItems.size());
         }
-        return precStagePrice;
+        return prevStagePrice;
     }
 }

@@ -59,7 +59,7 @@ public class DiscountContext<T extends GoodsItem> implements Serializable {
     private Map<Long, T> records;
 
     /**
-     * 存储与计算的结果
+     * 存储预计算的结果
      */
     private Map<String, Object> preCompute;
 

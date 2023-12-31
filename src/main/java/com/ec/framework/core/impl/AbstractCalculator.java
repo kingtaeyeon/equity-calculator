@@ -24,9 +24,8 @@ public abstract class AbstractCalculator<T extends GoodsItem> implements Calcula
     public long calcWarp(DiscountContext<T> context, DiscountWrapper wrapper, Map<Long, T> records, byte index, int i) {
         CalcStage stage = new CalcStage();
         CalcResult result = context.getCalcResult();
-        long curPrice = result.getCurPrice();
-        stage.setBeforeCalcPrice(curPrice);
         long price = result.getCurPrice();
+        stage.setBeforeCalcPrice(price);
         price = calc(context, wrapper, records, price, stage);
         if (price < 0) {
             return price;
